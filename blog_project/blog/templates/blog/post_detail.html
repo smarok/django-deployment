@@ -2,6 +2,7 @@
 {% block content %}
 
   <h1 class="posttitle loader">{{ post.title }}</h1>
+  <div style="text-align:center"><b>Published by {{ post.author }}</b></div>
   {% if post.published_date %}
     <div class="date postdate">
       {{ post.published_date }}

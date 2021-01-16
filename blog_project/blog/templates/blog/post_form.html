@@ -3,6 +3,7 @@
   <h1>New Post</h1>
   <form class="post-form" method="POST">
     {% csrf_token %}
+    <p><b>Author: {{ user.username }} </b></p>
     {{form.as_p}}
     <button class="save btn btn-default" type="submit">Save</button>
   </form>
