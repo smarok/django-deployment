@@ -30,6 +30,16 @@ class CreatePostView(LoginRequiredMixin, CreateView):
     redirect_field_name = 'blog/post_detail.html'
     form_class = PostForm
     model = Post
+    #fields = ['title','text']
+    # setting inital data to author field
+    # def get_initial(self):
+    #     return {'author':self.request.user}
+
+    # this is how to set a value
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
 
 class PostUpdateView(LoginRequiredMixin, UpdateView):
     login_url = '/login/' # is person is not logged in, they will go here
@@ -57,6 +67,7 @@ def add_comment_to_post(request,pk):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
+            comment.author = request.user
             comment.save()
             return redirect('post_detail', pk=post.pk)
 
