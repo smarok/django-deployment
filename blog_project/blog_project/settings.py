@@ -23,9 +23,9 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,'blog/templates/blog')
 SECRET_KEY = 'f1s1qcq1f&z&a*f76ro_mq$k(&u&-7yez$b6svbdjzrcej-os%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['smarok.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
